@@ -20,16 +20,18 @@ module.exports = {
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: Sequelize.literal('GETDATE()')
-        // defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        // defaultValue: Sequelize.literal('GETDATE()')
+        // defaultValue: new Date()
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
         // defaultValue: Sequelize.literal('CURRENT_TIMESTAMP(3)'),
         // defaultValue: DataTypes.NOW
       },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: Sequelize.literal('GETDATE()')
-        // defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        // defaultValue: Sequelize.literal('GETDATE()')
+        // defaultValue: new Date()
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
         // defaultValue: Sequelize.literal('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'),
         // defaultValue: DataTypes.NOW
       },
