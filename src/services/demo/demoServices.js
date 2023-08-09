@@ -1,5 +1,5 @@
 const db = require("../../db/models/index");
-const Demo = db.demo;
+const Demo = db.milantest;
 
 const demo = async (req, res) => {
     try {

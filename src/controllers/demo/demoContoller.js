@@ -5,7 +5,7 @@ const DemoService = require('../../services/demo/demoServices.js');
 const demo = async (req, res) => {
     try {
         const demo = await DemoService.demo();
-        return demo
+        return APIResponseFormat._ResDataFound(res, demo);
     } catch (error) {
         return APIResponseFormat._ResServerError(res, error);
     }
@@ -14,7 +14,7 @@ const demo = async (req, res) => {
 const addDemo = async (req, res) => {
     try {
         const newDemo = await DemoService.addDemo(req.body);
-        return newDemo
+        return APIResponseFormat._ResDataFound(res, newDemo);
     } catch (error) {
         return APIResponseFormat._ResServerError(res, error);
     }
@@ -22,8 +22,9 @@ const addDemo = async (req, res) => {
 
 const updateDemo = async (req, res) => {
     try {
-        const updatedDemo = await DemoService.updateDemo(req.params.id, req.body);
-        return updatedDemo
+        let id = req.headers.id;
+        const updatedDemo = await DemoService.updateDemo(id, req.body);
+        return APIResponseFormat._ResDataUpdated(res, updatedDemo);
     } catch (error) {
         return APIResponseFormat._ResServerError(res, error);
     }
@@ -31,8 +32,9 @@ const updateDemo = async (req, res) => {
 
 const deleteDemo = async (req, res) => {
     try {
-        const deletedDemo = await DemoService.deleteDemo(req.params.id);
-        return deletedDemo
+        let id = req.headers.id;
+        const deletedDemo = await DemoService.deleteDemo(id);
+        return APIResponseFormat._ResDataDeleted(res, deletedDemo);
     } catch (error) {
         return APIResponseFormat._ResServerError(res, error);
     }

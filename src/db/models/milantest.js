@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class milantest extends Model {
+  class milantests extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -13,16 +13,18 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  milantest.init({
+  milantests.init({
     name: DataTypes.STRING,
-    age: DataTypes.INTEGER
+    age: DataTypes.INTEGER,
+    createdAt : DataTypes.DATE(3),
+    updatedAt : DataTypes.DATE(3),
+    deletedAt : DataTypes.DATE,
   }, {
     sequelize,
-    modelName: 'milantest',
-    underscored: true,
+    modelName: 'milantests',
     paranoid: true,
-    deletedAt: "deleted_at",
-    updatedAt: "updated_at",
+    timestamps: true,
+    freezeTableName: true,
   });
-  return milantest;
+  return milantests;
 };

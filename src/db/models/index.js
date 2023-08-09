@@ -19,6 +19,16 @@ let sequelize = new Sequelize({
   port: config.port,
   database: config.database,
   dialect: config.dialect,
+  pool: {
+		max: 5,
+		min: 0,
+		acquire: 30000,
+		idle: 10000,
+	},
+	define: {
+		freezeTableName: true,
+	},
+	timezone: "+05:30",
 });
 
 // Testing the connection
