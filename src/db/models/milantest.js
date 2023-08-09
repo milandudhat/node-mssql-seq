@@ -16,8 +16,8 @@ module.exports = (sequelize, DataTypes) => {
   milantests.init({
     name: DataTypes.STRING,
     age: DataTypes.INTEGER,
-    createdAt : DataTypes.DATE(3),
-    updatedAt : DataTypes.DATE(3),
+    createdAt : DataTypes.DATE,
+    updatedAt : DataTypes.DATE,
     deletedAt : DataTypes.DATE,
   }, {
     sequelize,
